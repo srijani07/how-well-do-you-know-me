@@ -69,5 +69,5 @@ checkAnswer(questions[3].answer,answerfourOptions[indexFour]);
 console.log("\n\nYour final score is : "+score);
 
 if ((score>highscoreOne.score) || (score>highscoreTwo.score)) {
-  console.log(chalk.green("Congratulations, you have beaten the high score. Send us a screenshot!"))
+  console.log(chalk.green("Congratulations, you beat the high score. Send us a screenshot!"))
 }
