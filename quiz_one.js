@@ -1,121 +1,89 @@
 var readlineSync = require('readline-sync');
 const chalk = require('chalk');
 
+
 var questionOne = {
-  question :  "Which way gets more information passed around the office?",
-  answer : "Water cooler gossip"
+  question :  "Is Srijani's favourite show 'The Office'?",
+  answer : "Yes"
 }
 
 var questionTwo = {
-  question : "Who is put in charge of the new health care plan?",
-  answer : "Dwight"
+  question : "What is Srijani's most used programming language? ",
+  answer : "JavaScript"
 }
 
 var questionThree = {
-  question : "What is Michael's favourite McDonald's sandwich?",
-  answer : "Filet O' Fish"
+  question : "Where does Srijani live?",
+  answer : "Visakhapatnam"
 }
 
 var questionFour = {
-question : "What is the incentive prize for top sales?",
-  answer : "Espresso machine"
+question : "Which of these apps is Srijani's favourite?",
+  answer : "Smallcase"
 }
+
 var questionFive = {
-question : "Who wins the basketball game?",
-  answer : "Neither team"
-}
-var questionSix = {
-question : "How much money does Michael pledge for the Walk-A-Thon?",
-  answer : "$25 a mile"
-}
-var questionSeven = {
-question : "Whose birthday does the office celebrate to distract from the downsizing?",
-  answer : "Meredith's"
-}
-var questionEight = {
-question : "What is Pam's favourite flavour of yoghurt?",
-  answer : "Mixed berries"
-}
-var questionNine = {
-question : "Where did Michael get his mug from?",
-  answer : "Spencer's Gifts"
+question : "How does Srijani feel about putting pineapple on pizza?",
+  answer : "Since when did a fruit belong on a pizza?"
 }
 
 var score=0;
 
 function checkAnswer(answer, userAnswer) {
   if(answer === userAnswer) {
-    console.log(chalk.green("You are right! "));
+    console.log(chalk.blue("You are right! "));
     score++;
   }
 
   else {
-    console.log(chalk.red("Sorry, that's incorrect! \nThe right answer was : "+answer));
+    console.log(chalk.red("Sorry, that's incorrect! "));
   }
 }
 
 var highscoreOne = {
   name : 'Tara',
-  score : 6
+  score : 3
 }
 
 var highscoreTwo = {
   name : 'Arjun',
-  score : 7
+  score : 4
 }
 
 var highscores = [highscoreOne, highscoreTwo];
 
 
-var questions = [questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven, questionEight, questionNine ]
+var questions = [questionOne, questionTwo, questionThree, questionFour,questionFive];
 
 var userName = readlineSync.question("Hey! What is your name? ");
 console.log("Hello, "+userName);
 
-answeroneOptions = ["Office memos","Water cooler gossip"];
+answeroneOptions = ['Yes', 'No'];
 indexOne = readlineSync.keyInSelect(answeroneOptions, questions[0].question);
 console.log('You answered : ' + answeroneOptions[indexOne]);
 checkAnswer(questions[0].answer,answeroneOptions[indexOne]);
 
-answertwoOptions = ["Jim","Pam","Dwight","Ryan"];
+answertwoOptions = ['C', 'C++', 'JavaScript', 'Java', 'Python'];
 indexTwo = readlineSync.keyInSelect(answertwoOptions, questions[1].question);
 console.log('You answered : ' + answertwoOptions[indexTwo]);
 checkAnswer(questions[1].answer,answertwoOptions[indexTwo]);
 
-answerthreeOptions = ["Big Mac","Filet O' Fish", "Tuna Fish"];
+answerthreeOptions = ['Mumbai', 'Bangalore','Pune', 'Visakhapatnam','Gurgaon'];
 indexThree = readlineSync.keyInSelect(answerthreeOptions, questions[2].question);
 console.log('You answered : ' + answerthreeOptions[indexThree]);
 checkAnswer(questions[2].answer,answerthreeOptions[indexThree]);
 
-answerfourOptions = ["Espresso machine","A parking space", "A refrigerator from Vance Refrigeration"];
+answerfourOptions = ['Smallcase', 'FamPay','Zerodha','Jar'];
 indexFour = readlineSync.keyInSelect(answerfourOptions, questions[3].question);
 console.log('You answered : ' + answerfourOptions[indexFour]);
 checkAnswer(questions[3].answer,answerfourOptions[indexFour]);
 
-answerfiveOptions = ["The Warehouse","The Office","Neither team"];
+
+answerfiveOptions = ['Since when did a fruit belong on a pizza?','Vitamin C >>>>', 'Should definitely give it a try?'];
 indexFive = readlineSync.keyInSelect(answerfiveOptions, questions[4].question);
 console.log('You answered : ' + answerfiveOptions[indexFive]);
-checkAnswer(questions[4].answer,answerfiveOptions[indexFive]);
+checkAnswer(questions[4].answer,answerfiveOptions[indexFour]);
 
-answersixOptions = ["$2 a mile","$25 a mile","$6 a mile","$10 a mile"];
-indexSix = readlineSync.keyInSelect(answersixOptions, questions[5].question);
-console.log('You answered : ' + answersixOptions[indexSix]);
-checkAnswer(questions[5].answer,answersixOptions[indexSix]);
-
-answersevenOptions = ["Meredith's","Phyllis'","Angela's","Oscar's"];
-indexSeven = readlineSync.keyInSelect(answersevenOptions, questions[6].question);
-console.log('You answered : ' + answersevenOptions[indexSeven]);
-checkAnswer(questions[6].answer,answersevenOptions[indexSeven]);
-
-answereightOptions = ["Mixed berries","Raspberry","Strawberry","None"];
-indexEight = readlineSync.keyInSelect(answereightOptions, questions[7].question);
-console.log('You answered : ' + answereightOptions[indexEight]);
-checkAnswer(questions[7].answer,answereightOptions[indexEight]);
-
-answernineOptions = ["From Dwight","The internet","Spencer's Gifts"];
-indexNine = readlineSync.keyInSelect(answernineOptions, questions[8].question);
-console.log('You answered : ' + answernineOptions[indexNine]);
-checkAnswer(questions[8].answer,answernineOptions[indexNine]);
 
 console.log("\n\nYour final score is : "+score);
 
