@@ -1,12 +1,14 @@
 var readlineSync = require('readline-sync');
 const chalk = require('chalk');
+
+
 var questionOne = {
   question :  "Is Srijani's favourite show 'The Office'?",
   answer : "Yes"
 }
 
 var questionTwo = {
-  question : "What is Srijani's favourite programming language? ",
+  question : "What is Srijani's most used programming language? ",
   answer : "JavaScript"
 }
 
@@ -16,9 +18,15 @@ var questionThree = {
 }
 
 var questionFour = {
-question : "Which of these startups is Srijani's favourite?",
-  answer : "Zerodha"
+question : "Which of these apps is Srijani's favourite?",
+  answer : "Smallcase"
 }
+
+var questionFive = {
+question : "How does Srijani feel about putting pineapple on pizza?",
+  answer : "Since when did a fruit belong on a pizza?"
+}
+
 var score=0;
 
 function checkAnswer(answer, userAnswer) {
@@ -45,7 +53,8 @@ var highscoreTwo = {
 var highscores = [highscoreOne, highscoreTwo];
 
 
-var questions = [questionOne, questionTwo, questionThree, questionFour]
+var questions = [questionOne, questionTwo, questionThree, questionFour,questionFive];
+
 answeroneOptions = ['Yes', 'No'];
 indexOne = readlineSync.keyInSelect(answeroneOptions, questions[0].question);
 console.log('You answered : ' + answeroneOptions[indexOne]);
@@ -61,10 +70,17 @@ indexThree = readlineSync.keyInSelect(answerthreeOptions, questions[2].question)
 console.log('You answered : ' + answerthreeOptions[indexThree]);
 checkAnswer(questions[2].answer,answerthreeOptions[indexThree]);
 
-answerfourOptions = ['Smallcase', 'FamPay','Avalon Meta', 'Zerodha','Jar'];
+answerfourOptions = ['Smallcase', 'FamPay','Zerodha','Jar'];
 indexFour = readlineSync.keyInSelect(answerfourOptions, questions[3].question);
 console.log('You answered : ' + answerfourOptions[indexFour]);
 checkAnswer(questions[3].answer,answerfourOptions[indexFour]);
+
+
+answerfiveOptions = ['Since when did a fruit belong on a pizza?','Vitamin C >>>>', 'Should definitely give it a try?'];
+indexFive = readlineSync.keyInSelect(answerfiveOptions, questions[4].question);
+console.log('You answered : ' + answerfiveOptions[indexFive]);
+checkAnswer(questions[4].answer,answerfiveOptions[indexFour]);
+
 
 console.log("\n\nYour final score is : "+score);
 
